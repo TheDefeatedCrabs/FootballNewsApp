@@ -14,10 +14,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AddTipComponent } from './components/tips/add-tip/add-tip.component';
+import { TipsComponent } from './components/tips/tips.component';
 // Services
 import { ClientService } from './services/client.service';
-import { TipsComponent } from './components/tips/tips.component';
-
+import { AuthService } from './services/auth.service';
 
 // FireBase config
 export const firebaseConfig = {
@@ -49,7 +49,8 @@ export const firebaseConfig = {
   providers: [
     AngularFireAuth,
     AngularFireDatabase,
-    ClientService
+    ClientService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
