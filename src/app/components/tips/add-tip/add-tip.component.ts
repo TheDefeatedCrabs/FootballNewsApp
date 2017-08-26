@@ -29,7 +29,7 @@ export class AddTipComponent implements OnInit {
     } else {
       this.clientService.addTip(value);
       this.flashMessagesService.show('Успешно добавихте нова прогноза', {cssClass:'alert-success', timeout: 4000});
-      this.router.navigate(['/']);
+      this.router.navigate(['/tips/all']);
     }
   }
 
