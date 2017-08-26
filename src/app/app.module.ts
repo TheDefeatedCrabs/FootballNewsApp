@@ -18,6 +18,7 @@ import { TipsComponent } from './components/tips/tips.component';
 // Services
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 // FireBase config
 export const firebaseConfig = {
@@ -50,7 +51,8 @@ export const firebaseConfig = {
     AngularFireAuth,
     AngularFireDatabase,
     ClientService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
