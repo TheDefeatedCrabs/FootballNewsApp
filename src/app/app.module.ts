@@ -20,6 +20,8 @@ import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { NewsComponent } from './components/news/news.component';
 
 // FireBase config
 export const firebaseConfig = {
@@ -40,7 +42,9 @@ export const firebaseConfig = {
     RegisterComponent,
     TipsComponent,
     AddTipComponent,
-    CarouselComponent
+    CarouselComponent,
+    ProfileComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,

@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.email, this.password)
       .then((res) => {
         this._flashMessagesService.show('Вие се логнахте успешно!', { cssClass: 'alert-success', timeout: 4000 });
-        this.router.navigate(['/']);
+        this.router.navigate(['/profile']);
       })
       .catch((err) => {
         this._flashMessagesService.show(err.message, { cssClass: 'alert-danger', timeout: 4000 });
