@@ -30,3 +30,18 @@ body {
   min-width: 100%;
   height: 32rem;
 }
+
+.breadcrumb {
+    border-top:2px solid black;
+    margin-bottom: 0rem; 
+    background-color: #969da1;
+    border-radius: 0rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 1.45rem;
+    padding-left: 1.45rem;
+    color: #636c72;
+    content: "|";
+}
