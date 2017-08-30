@@ -1,12 +1,20 @@
 <app-carousel></app-carousel>
-<ul class="nav nav-tabs nav-fill">
+<!-- Nav tabs -->
+<ul class="nav nav-tabs nav-fill" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" href="#">Последни новини</a>
+    <a class="nav-link active" data-toggle="tab" href="#news" role="tab">Последни новини</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Последни прогнози</a>
+    <a class="nav-link" data-toggle="tab" href="#tips" role="tab">Последни прогнози</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Класирания</a>
+    <a class="nav-link" data-toggle="tab" href="#messages" role="tab">Класирания</a>
   </li>
 </ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="news" role="tabpanel"></div>
+  <div class="tab-pane" id="tips" role="tabpanel"><app-tips></app-tips></div>
+  <div class="tab-pane" id="messages" role="tabpanel">...</div>
+</div>

@@ -87,7 +87,8 @@
         rows="3"
         name="tip"
         [(ngModel)]="tip.tip"
-        minlength="20"
+        minlength="100"
+        maxlength="600";
         #tip="ngModel"
         required ></textarea>
         <div *ngIf="tip.errors?.required && tip.touched" class="alert alert-danger">

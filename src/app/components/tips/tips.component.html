@@ -1,6 +1,4 @@
-<br>
-<ul *ngFor="let tip of tips">
-  <div class="card">
+  <div *ngFor="let tip of tips" class="card">
       <h3 class="card-header">{{tip.tournament}}</h3>
       <div class="card-block">
             <h4 class="card-title">{{tip.host}} - {{tip.guest}}</h4>
@@ -9,5 +7,5 @@
             <a href="#" class="btn btn-primary">Прочети повече</a>
       </div>
   </div>
-</ul>
+
 
