@@ -7,12 +7,14 @@ import { LoginComponent } from './components/login/login.component';
 import { AddTipComponent } from './components/tips/add-tip/add-tip.component';
 import { TipsComponent } from './components/tips/tips.component';
 import { NewsComponent } from './components/news/news.component';
+import { AddNewsComponent } from './components/news/add-news/add-news.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'news/all', component: NewsComponent },
+    { path: 'news/add', component: AddNewsComponent },
     { path: 'tips/all', component: TipsComponent},
     { path: 'tips/add', component: AddTipComponent, canActivate: [AuthGuard] },
     { path: 'register', component: RegisterComponent},

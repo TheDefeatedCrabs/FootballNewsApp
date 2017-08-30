@@ -15,13 +15,15 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AddTipComponent } from './components/tips/add-tip/add-tip.component';
 import { TipsComponent } from './components/tips/tips.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { NewsComponent } from './components/news/news.component';
+import { AddNewsComponent } from './components/news/add-news/add-news.component';
 // Services
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
-import { CarouselComponent } from './components/carousel/carousel.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { NewsComponent } from './components/news/news.component';
+
 
 // FireBase config
 export const firebaseConfig = {
@@ -44,7 +46,8 @@ export const firebaseConfig = {
     AddTipComponent,
     CarouselComponent,
     ProfileComponent,
-    NewsComponent
+    NewsComponent,
+    AddNewsComponent
   ],
   imports: [
     BrowserModule,
