@@ -1,11 +1,12 @@
 <br>
 <ul *ngFor="let tip of tips">
   <div class="card">
-      <h3 class="card-header">{{tip.header}}</h3>
+      <h3 class="card-header">{{tip.tournament}}</h3>
       <div class="card-block">
-            <h4 class="card-title">Special title treatment</h4>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h4 class="card-title">{{tip.host}} - {{tip.guest}}</h4>
+            <p class="card-text">Прогноза: {{tip.tip}}</p>
+            <p class="card-text">Краен изход: {{tip.outcome}}</p>
+            <a href="#" class="btn btn-primary">Прочети повече</a>
       </div>
   </div>
 </ul>

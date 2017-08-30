@@ -14,21 +14,87 @@
   <div class="card-block">
     <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
       <div class="form-group">
-        <label for="header">Заглавие</label>
+        <label for="tournament">Турнир</label>
+        <select 
+          class="form-control"
+          name="tournament" 
+          [(ngModel)]="tip.tournament"
+          #tournament="ngModel"
+          required
+        >
+          <option>Шампионска лига</option>
+          <option>Английско първенство</option>
+          <option>Испанско първенство</option>
+          <option>Италиянско първенство</option>
+          <option>Френско първенство</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="host">Домакин</label>
         <input 
           type="text"
           class="form-control"
-          [(ngModel)]="tip.header"
-          name="header"
-          #header="ngModel"
+          [(ngModel)]="tip.host"
+          name="host"
+          #host="ngModel"
           minlength="2"
           required
         >
-        <div *ngIf="header.errors?.required && header.touched" class="alert alert-danger">
-          Заглавието е задължително!
+        <div *ngIf="host.errors?.required && host.touched" class="alert alert-danger">
+          Полето домакин е задължително!
         </div>
-        <div *ngIf="header.errors?.minlength && header.touched" class="alert alert-danger">
-          Заглавието трябва да бъде минимум 2 символа!
+        <div *ngIf="host.errors?.minlength && host.touched" class="alert alert-danger">
+          Полето домакин трябва да бъде минимум 2 символа!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="guest">Гост</label>
+        <input 
+          type="text"
+          class="form-control"
+          [(ngModel)]="tip.guest"
+          name="guest"
+          #guest="ngModel"
+          minlength="2"
+          required
+        >
+        <div *ngIf="guest.errors?.required && guest.touched" class="alert alert-danger">
+          Полето гост е задължително!
+        </div>
+        <div *ngIf="guest.errors?.minlength && guest.touched" class="alert alert-danger">
+          Полето гост трябва да бъде минимум 2 символа!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="outcome">Краен изход</label>
+        <select 
+          class="form-control" 
+          id="outcome"
+          name="outcome"
+          [(ngModel)]="tip.outcome"
+          #outcome="ngModel"
+          required>
+          <option>1</option>
+          <option>2</option>
+          <option>x</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tip">Прогноза</label>
+        <textarea 
+        class="form-control" 
+        id="tip" 
+        rows="3"
+        name="tip"
+        [(ngModel)]="tip.tip"
+        minlength="20"
+        #tip="ngModel"
+        required ></textarea>
+        <div *ngIf="tip.errors?.required && tip.touched" class="alert alert-danger">
+          Полето прогноза е задължително!
+        </div>
+        <div *ngIf="tip.errors?.minlength && tip.touched" class="alert alert-danger">
+          Полето гост трябва да бъде минимум 20 символа!
         </div>
       </div>
 

@@ -11,7 +11,10 @@ import { ClientService } from '../../../services/client.service';
 })
 export class AddTipComponent implements OnInit {
   tip: Tip = {
-    header: '',
+    tournament: '',
+    guest: '',
+    outcome: '',
+    tip: ''
   };
   constructor(
     public flashMessagesService: FlashMessagesService,

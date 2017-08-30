@@ -1,4 +1,8 @@
 export interface Tip {
     $key?: string;
-    header?: string;
+    tournament?: string;
+    host?: string;
+    guest?: string;
+    outcome?: string;
+    tip?: string;
 }
