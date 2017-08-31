@@ -23,6 +23,7 @@ import { AddNewsComponent } from './components/news/add-news/add-news.component'
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 // FireBase config
@@ -47,7 +48,8 @@ export const firebaseConfig = {
     CarouselComponent,
     ProfileComponent,
     NewsComponent,
-    AddNewsComponent
+    AddNewsComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/news/all" href="#" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i> Върни се в новини</a>
+  </div>
+  <div class="col-md-6">
+    
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    ДОБАВИ НОВА НОВИНА
+  </div>
+  <div class="card-block">
+    <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="form-group">
+        <label for="header">Заглавие</label>
+        <input 
+          type="text"
+          class="form-control"
+          [(ngModel)]="news.header"
+          name="header"
+          #header="ngModel"
+          minlength="2"
+          required
+        >
+        <div *ngIf="header.errors?.required && header.touched" class="alert alert-danger">
+          Полето домакин е задължително!
+        </div>
+        <div *ngIf="header.errors?.minlength && header.touched" class="alert alert-danger">
+          Полето домакин трябва да бъде минимум 2 символа!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="subHeader">Подзаглавие</label>
+        <input 
+          type="text"
+          class="form-control"
+          [(ngModel)]="news.subHeader"
+          name="subHeader"
+          #subHeader="ngModel"
+          minlength="2"
+          required
+        >
+        <div *ngIf="subHeader.errors?.required && subHeader.touched" class="alert alert-danger">
+          Полето гост е задължително!
+        </div>
+        <div *ngIf="subHeader.errors?.minlength && subHeader.touched" class="alert alert-danger">
+          Полето гост трябва да бъде минимум 2 символа!
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="newsText">Текст на новината</label>
+        <textarea 
+        class="form-control" 
+        id="newsText" 
+        rows="3"
+        name="newsText"
+        [(ngModel)]="news.newsText"
+        minlength="100"
+        maxlength="600"
+        #newsText="ngModel"
+        required ></textarea>
+        <div *ngIf="newsText.errors?.required && newsText.touched" class="alert alert-danger">
+          Полето прогноза е задължително!
+        </div>
+        <div *ngIf="newsText.errors?.minlength && newsText.touched" class="alert alert-danger">
+          Полето гост трябва да бъде минимум 100 символа!
+        </div>
+      </div>
+
+      <input type="submit" class="btn btn-primary btn-block" value="Submit">
+    </form>
+  </div>
+</div>

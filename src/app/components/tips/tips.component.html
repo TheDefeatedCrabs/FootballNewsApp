@@ -1,3 +1,5 @@
+  <br>
+  <app-spinner *ngIf="showSpinner"></app-spinner>
   <div *ngFor="let tip of tips" class="card">
       <h3 class="card-header">{{tip.tournament}}</h3>
       <div class="card-block">

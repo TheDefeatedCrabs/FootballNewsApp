@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../services/client.service';
 import { News } from '../../models/News';
+
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
@@ -8,12 +9,13 @@ import { News } from '../../models/News';
 })
 export class NewsComponent implements OnInit {
   news: News[];
+  showSpinner = true;
   constructor(public clientService: ClientService) { }
 
   ngOnInit() {
     this.clientService.getNews().subscribe(news => {
       this.news = news;
-      console.log(this.news);
+      this.showSpinner = false;
     });
   }
 
