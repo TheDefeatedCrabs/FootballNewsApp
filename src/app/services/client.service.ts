@@ -34,4 +34,9 @@ export class ClientService {
     this.news.push(oneNews);
   }
 
+  getOneNews(id: string) {
+    this.oneNews = this.af.object('/news/' + id) as FirebaseObjectObservable<News>;
+    return this.oneNews;
+  }
+
 }

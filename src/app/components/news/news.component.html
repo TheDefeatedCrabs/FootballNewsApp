@@ -7,7 +7,7 @@
       <div class="card-block">
         <h3 class="card-title">{{new.header}}</h3>
         <p class="card-text">{{new.newsText}}</p>
-        <a href="#" class="btn btn-primary">Прочети повече</a>
+        <a [routerLink] = "['/news/'+new.$key]" href="" class="btn btn-primary">Прочети повече</a>
       </div>
     </div>
   </div>
