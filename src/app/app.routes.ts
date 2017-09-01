@@ -10,6 +10,7 @@ import { NewsComponent } from './components/news/news.component';
 import { AddNewsComponent } from './components/news/add-news/add-news.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NewsDetailsComponent } from './components/news/news-details/news-details.component';
+import { EditNewsComponent } from './components/news/edit-news/edit-news.component';
 
 import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
     { path: 'news/all', component: NewsComponent },
     { path: 'news/add', component: AddNewsComponent },
     { path: 'news/:id', component: NewsDetailsComponent },
+    { path: 'news/edit/:id', component: EditNewsComponent },
     { path: 'tips/all', component: TipsComponent},
     { path: 'tips/add', component: AddTipComponent, canActivate: [AuthGuard] },
     { path: 'register', component: RegisterComponent},

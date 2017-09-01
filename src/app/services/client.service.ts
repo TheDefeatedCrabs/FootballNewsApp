@@ -39,4 +39,12 @@ export class ClientService {
     return this.oneNews;
   }
 
+  updateOneNews(id: string, oneNews: News) {
+    return this.news.update(id, oneNews);
+  }
+
+  deleteOneNews(id: string) {
+    return this.news.remove(id);
+  }
+
 }

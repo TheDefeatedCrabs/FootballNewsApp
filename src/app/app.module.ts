@@ -25,6 +25,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { NewsDetailsComponent } from './components/news/news-details/news-details.component';
+import { EditNewsComponent } from './components/news/edit-news/edit-news.component';
 
 
 // FireBase config
@@ -51,7 +52,8 @@ export const firebaseConfig = {
     NewsComponent,
     AddNewsComponent,
     SpinnerComponent,
-    NewsDetailsComponent
+    NewsDetailsComponent,
+    EditNewsComponent
   ],
   imports: [
     BrowserModule,

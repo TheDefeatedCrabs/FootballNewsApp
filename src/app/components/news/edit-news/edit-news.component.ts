@@ -5,17 +5,19 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { News } from '../../../models/News';
 
 @Component({
-  selector: 'app-news-details',
-  templateUrl: './news-details.component.html',
-  styleUrls: ['./news-details.component.css']
+  selector: 'app-edit-news',
+  templateUrl: './edit-news.component.html',
+  styleUrls: ['./edit-news.component.css']
 })
-export class NewsDetailsComponent implements OnInit {
- id: string;
+export class EditNewsComponent implements OnInit {
+  id: string;
   news: News = {
     header: '',
     subHeader: '',
     newsText: ''
   };
+
+
   constructor(
     public clientService: ClientService,
     public router: Router,
@@ -27,15 +29,18 @@ export class NewsDetailsComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.clientService.getOneNews(this.id).subscribe(news => {
       this.news = news;
-      console.log(this.news);
     });
   }
 
-  onDeleteClick() {
-    if (confirm("Наистина ли искате да изтриете тази новина")) {
-      this.clientService.deleteOneNews(this.id);
-      this.flashMessagesService.show('Новината беше изтрита успешно', { cssClass: 'alert-success', timeout: 4000 });
-      this.router.navigate(['/news/all']);
+  onSubmit({value, valid}: {value: News, valid: boolean}) {
+    if (!valid) {
+      this.flashMessagesService.show('Моля попълнете всички полета', {cssClass: 'alert-danger', timeout: 4000});
+      this.router.navigate(['edit-news/' + this.id]);
+    } else {
+      // Update client
+      this.clientService.updateOneNews(this.id, value);
+      this.flashMessagesService.show('Новината е променена успешно', {cssClass: 'alert-success', timeout: 4000});
+      this.router.navigate(['/news/' + this.id]);
     }
   }
 

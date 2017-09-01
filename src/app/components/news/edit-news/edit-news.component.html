@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-6">
-    <a routerLink="/news/all" href="#" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i> Върни се в новини</a>
+    <a [routerLink]="['/news/' + id]" href="#" class="btn btn-link"><i class="fa fa-arrow-circle-o-left"></i> Върни се в новината</a>
   </div>
   <div class="col-md-6">
     
@@ -9,7 +9,7 @@
 
 <div class="card">
   <div class="card-header">
-    ДОБАВИ НОВА НОВИНА
+    ПРОМЕНИ НОВИНА
   </div>
   <div class="card-block">
     <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
