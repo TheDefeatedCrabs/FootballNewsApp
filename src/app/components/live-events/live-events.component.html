@@ -1,0 +1,10 @@
+<br>
+<app-spinner *ngIf="showSpinner"></app-spinner>
+<div class="row">
+  <div *ngFor="let match of matches" class="col-sm-4">
+    <div class="match-block">
+      <p>Start: {{ match.start | date : "medium" }}</p>
+      <p>{{ match.homeTeam.name }} {{ match.homeGoals }}:{{ match.awayGoals }} {{ match.awayTeam.name }}</p>
+    </div>
+  </div>
+</div>
