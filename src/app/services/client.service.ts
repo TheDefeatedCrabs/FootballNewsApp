@@ -28,7 +28,6 @@ export class ClientService {
           if (auth !== undefined && auth !== null) {
             this.user = auth;
           }
-
         });
   }
 
@@ -48,6 +47,7 @@ export class ClientService {
     this.getUser().subscribe(a => {
             this.userName = a.displayName;
     });
+    oneNews.displayEmail = this.user.email;
     oneNews.postTime = this.getTimeStamp();
     oneNews.displayName = this.userName;
     this.news.push(oneNews);
