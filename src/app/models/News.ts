@@ -4,4 +4,5 @@ export class News {
     subHeader: string;
     newsText: string;
     displayName?: string;
+    postTime?: string;
 }

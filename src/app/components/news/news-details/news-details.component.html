@@ -4,9 +4,10 @@
     <h3 class="card-title">{{news.header}}</h3>
     <h5 class="card-text">{{news.subHeader}}</h5>
     <p class="card-text">{{news.newsText}}</p>
+    <p class="card-text">Автор: {{news.displayName}}</p>
     <button type="button" class="btn btn-danger" (click)="onDeleteClick()">Delete</button>
     <a [routerLink]="['/news/edit/'+id]" class="btn btn-secondary">Edit</a>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <p class="card-text"><small class="text-muted">Дата: {{news.postTime}}</small></p>
     
   </div>
 </div>

@@ -17,11 +17,11 @@ export class ClientService {
   userName: string;
 
   constructor(
-    public af: AngularFireDatabase,
+    public db: AngularFireDatabase,
     private afAuth: AngularFireAuth
   ) {
-    this.tips = this.af.list('/tips') as FirebaseListObservable<Tip[]>;
-    this.news = this.af.list('/news') as FirebaseListObservable<News[]>;
+    this.tips = this.db.list('/tips') as FirebaseListObservable<Tip[]>;
+    this.news = this.db.list('/news') as FirebaseListObservable<News[]>;
 
 
     this.afAuth.authState.subscribe(auth => {
@@ -47,13 +47,14 @@ export class ClientService {
   addNews(oneNews: News) {
     this.getUser().subscribe(a => {
             this.userName = a.displayName;
-          });
+    });
+    oneNews.postTime = this.getTimeStamp();
     oneNews.displayName = this.userName;
     this.news.push(oneNews);
   }
 
   getOneNews(id: string) {
-    this.oneNews = this.af.object('/news/' + id) as FirebaseObjectObservable<News>;
+    this.oneNews = this.db.object('/news/' + id) as FirebaseObjectObservable<News>;
     return this.oneNews;
   }
 
@@ -69,11 +70,23 @@ export class ClientService {
   getUser() {
     const userId = this.user.uid;
     const path = `/users/${userId}`;
-    return this.af.object(path);
+    return this.db.object(path);
   }
 
   getUsers() {
     const path = '/users';
-    return this.af.list(path);
+    return this.db.list(path);
+  }
+
+  getTimeStamp() {
+    const now = new Date();
+    const date = now.getUTCFullYear() + '/' +
+                 (now.getUTCMonth() + 1) + '/' +
+                 now.getUTCDate();
+    const time = now.getUTCHours() + ':' +
+                 now.getUTCMinutes() + ':' +
+                 now.getUTCSeconds();
+
+    return (date + ' ' + time);
   }
 }
