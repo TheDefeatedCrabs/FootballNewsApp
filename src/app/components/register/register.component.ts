@@ -9,20 +9,21 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  email:string;
-  password:string;
+  email: string;
+  password: string;
+  displayName: string;
 
   constructor(
-    private authService:AuthService,
-    private router:Router,
+    private authService: AuthService,
+    private router: Router,
     private flashMessagesService: FlashMessagesService
   ) { }
 
   ngOnInit() {
   }
 
-  onSubmit(){
-    this.authService.register(this.email, this.password)
+  onSubmit() {
+    this.authService.register(this.email, this.password, this.displayName)
       .then((res) => {
         this.flashMessagesService.show('New user registered', {cssClass:'alert-success', timeout:4000});
         this.router.navigate(['/']);

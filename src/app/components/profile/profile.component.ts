@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientService } from '../../services/client.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
-  constructor() { }
+  user = {
+    displayName: '',
+    email: '',
+    status: ''
+  };
+  constructor(public clientService: ClientService) { }
 
   ngOnInit() {
+    this.clientService.getUser().subscribe(user => {
+      this.user = user;
+    });
   }
 
 }
