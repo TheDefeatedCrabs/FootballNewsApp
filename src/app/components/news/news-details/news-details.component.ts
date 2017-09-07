@@ -3,6 +3,7 @@ import { ClientService } from '../../../services/client.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { News } from '../../../models/News';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-news-details',
@@ -10,6 +11,7 @@ import { News } from '../../../models/News';
   styleUrls: ['./news-details.component.css']
 })
 export class NewsDetailsComponent implements OnInit {
+ isMine: boolean;
  id: string;
   news: News = {
     header: '',
@@ -17,6 +19,7 @@ export class NewsDetailsComponent implements OnInit {
     newsText: ''
   };
   constructor(
+    public authService: AuthService,
     public clientService: ClientService,
     public router: Router,
     public route: ActivatedRoute,
@@ -28,6 +31,14 @@ export class NewsDetailsComponent implements OnInit {
     this.clientService.getOneNews(this.id).subscribe(news => {
       this.news = news;
       console.log(this.news);
+    });
+
+    this.authService.authUser().subscribe(auth => {
+      if (auth.email === this.news.displayEmail ) {
+        this.isMine = true;
+      } else {
+        this.isMine = false;
+      }
     });
   }
 

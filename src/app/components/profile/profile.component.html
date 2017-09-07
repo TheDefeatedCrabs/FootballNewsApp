@@ -1,3 +1,31 @@
-<p>
-  profile works!
-</p>
+<hr class="my-5">
+<h3 class="headalign text-center">Профил</h3>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card card-inverse" style="background-color: #808080; border-color: #808080;">
+        <div class="card-block">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 text-center">
+              <img src="https://s3.amazonaws.com/37assets/svn/1065-IMG_2529.jpg" alt="" class="img-fluid img-thumbnail" style="width: 200px; height: 200px">
+              <h2 class="card-title">Username: {{user.displayName}}</h2>
+              <p class="card-text"><strong>Еmail: </strong> {{user.email}} </p>
+            </div>
+            <div class="col-md-6 col-sm-6 text-center">
+              <div class="card card-inverse card-info mb-3 text-center">
+                <div class="card-block">
+                  <button routerLink="/news/add" class="btn btn-primary btn-block btn-md"><i class="fa fa-file-text" aria-hidden="true"></i> Добави нова новина</button>
+                </div>
+              </div>
+              <div class="card card-inverse card-warning mb-3 text-center">
+                <div class="card-block">
+                  <button routerLink="/tips/add" class="btn btn-success btn-block btn-md"><i class="fa fa-file-text-o" aria-hidden="true"></i> Добави нова прогноза</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

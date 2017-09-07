@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.authService.getAuth().subscribe(auth => {
+    this.authService.authUser().subscribe(auth => {
       if(auth){
         this.isLoggedIn = true;
         this.loggedInUser = auth.email;
@@ -34,7 +34,6 @@ export class NavbarComponent implements OnInit {
   onLogoutClick(){
     this.authService.logout();
     this.flashMessagesService.show('Излязохте успешно!', {cssClass:'alert-success', timeout:6000});
-    this.router.navigate(['/']);
   }
 
 }

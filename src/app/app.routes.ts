@@ -17,15 +17,15 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'news/all', component: NewsComponent },
-    { path: 'news/add', component: AddNewsComponent },
+    { path: 'news/add', component: AddNewsComponent, canActivate: [AuthGuard] },
     { path: 'news/:id', component: NewsDetailsComponent },
     { path: 'news/edit/:id', component: EditNewsComponent },
     { path: 'tips/all', component: TipsComponent},
     { path: 'tips/add', component: AddTipComponent, canActivate: [AuthGuard] },
     { path: 'register', component: RegisterComponent},
     { path: 'login', component: LoginComponent },
-    { path: 'profile', component: ProfileComponent },
-    { path: 'live-events', component: LiveEventsComponent },
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+    { path: 'live-events', component: LiveEventsComponent }
 ];
 
 @NgModule({
