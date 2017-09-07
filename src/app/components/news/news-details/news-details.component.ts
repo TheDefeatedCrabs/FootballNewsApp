@@ -16,7 +16,8 @@ export class NewsDetailsComponent implements OnInit {
   news: News = {
     header: '',
     subHeader: '',
-    newsText: ''
+    newsText: '',
+    newsPicture: ''
   };
   constructor(
     public authService: AuthService,

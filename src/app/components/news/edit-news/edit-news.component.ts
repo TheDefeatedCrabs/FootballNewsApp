@@ -14,7 +14,8 @@ export class EditNewsComponent implements OnInit {
   news: News = {
     header: '',
     subHeader: '',
-    newsText: ''
+    newsText: '',
+    newsPicture: ''
   };
 
 

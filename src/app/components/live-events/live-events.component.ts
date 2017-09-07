@@ -21,6 +21,7 @@ export class LiveEventsComponent implements OnInit, OnDestroy {
       .getAll()
       .takeUntil(this.ngUnsubscribe)
       .subscribe(m => this.matches = m);
+      console.log(this.matches);
       this.showSpinner = false;
   }
 

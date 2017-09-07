@@ -14,6 +14,7 @@ news: News = {
     header: '',
     subHeader: '',
     newsText: '',
+    newsPicture: ''
   };
   constructor(
     public flashMessagesService: FlashMessagesService,
