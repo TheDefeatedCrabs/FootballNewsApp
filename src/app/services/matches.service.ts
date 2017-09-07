@@ -2,33 +2,29 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Match } from './../models/Match';
+import { Config }  from './../../environments/config/config';
 
 @Injectable()
-export class LiveEventsService {
+export class MatchesService {
   private baseUrl: string = 'https://api.crowdscores.com/v1/matches';
-  constructor(private http: Http) { }
+  private apiKey: string = Config.FootballApiConfig.API_KEY;
   
-  getAll(): Observable<Match[]> {
+  constructor(private http: Http) { }
+
+   getAllTodays(): Observable<Match[]> {
     let today = new Date()
     return this.http.get(
       this.baseUrl, 
       {
         params: {
-          api_key: '373f6fcc7c614ae7a269bf364d51618f',
+          api_key: this.apiKey,
           from: this.getStartOfDay(),
           to: this.getEndOfDay(),
-        },
-        headers: this.getHeaders(),
+        }
       })
       .map((res) => {
           return <Match[]> res.json();
       });
-  }
-
-  private getHeaders(): Headers{
-    let headers = new Headers();
-    headers.append('Accept', 'application/json');
-    return headers;
   }
 
   private getStartOfDay(): string{

@@ -28,17 +28,9 @@ import { NewsDetailsComponent } from './components/news/news-details/news-detail
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
-import { LiveEventsService } from "./services/live-events.service";
-
-
-// FireBase config
-export const firebaseConfig = {
-    apiKey: "AIzaSyAHvI_4TeAPLEVp1VEme9feDKgh6U1kR80",
-    authDomain: "footballapp-f9fad.firebaseapp.com",
-    databaseURL: "https://footballapp-f9fad.firebaseio.com",
-    storageBucket: "",
-    messagingSenderId: "25155396791"
-}
+import { MatchesService } from "./services/matches.service";
+// Configs
+import { Config } from './../environments/config/config';
 
 
 @NgModule({
@@ -63,7 +55,7 @@ export const firebaseConfig = {
     BrowserModule,
     AppRouterModule,
     FlashMessagesModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(Config.FirebaseConfig),
     FormsModule,
     HttpModule
   ],
@@ -73,7 +65,7 @@ export const firebaseConfig = {
     ClientService,
     AuthService,
     AuthGuard,
-    LiveEventsService
+    MatchesService
   ],
   bootstrap: [AppComponent]
 })

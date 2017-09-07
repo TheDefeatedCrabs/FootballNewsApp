@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { LiveEventsService } from './../../services/live-events.service';
+import { MatchesService } from './../../services/matches.service';
 import { Match } from './../../models/Match';
 import 'rxjs/add/operator/takeUntil';
 import { Subject } from 'rxjs/Subject';
@@ -14,11 +14,11 @@ export class LiveEventsComponent implements OnInit, OnDestroy {
   matches: Match[];
   showSpinner = true;
 
-  constructor( private liveEventsService: LiveEventsService) { }
+  constructor( private liveEventsService: MatchesService) { }
 
   ngOnInit() {
     this.liveEventsService
-      .getAll()
+      .getAllTodays()
       .takeUntil(this.ngUnsubscribe)
       .subscribe(m => this.matches = m);
       console.log(this.matches);
