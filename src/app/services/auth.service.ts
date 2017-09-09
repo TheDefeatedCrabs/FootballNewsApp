@@ -49,7 +49,7 @@ export class AuthService {
                 this.authState = user;
                 const status = 'online';
                 this.setUserData(email, displayName, status);
-              }).catch(error => console.log(error));
+              })//.catch(error => console.log(error));
   }
 
 
